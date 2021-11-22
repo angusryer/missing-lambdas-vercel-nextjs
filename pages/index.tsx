@@ -3,163 +3,25 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-	const [api, setApi] = useState("");
-	const [apiResponse, setApiResponse] = useState("");
+	const [endpoint, setEndpoint] = useState("");
+	const [endpointResponse, setEndpointResponse] = useState("");
 
 	useEffect(() => {
-		if (api !== "") {
-			fetch(`/api/n${api}`).then((res) =>
-				setApiResponse(res.url)
-			);
+		if (endpoint !== "") {
+			fetch(`/api/${endpoint}`).then((res) => setEndpointResponse(res.url));
 		}
-	}, [api]);
+	}, [endpoint]);
 
 	return (
 		<div className={styles.container}>
 			<h1>
-				Response from API # n{api}: {apiResponse}
+				Response from {endpoint}: {endpointResponse}
 			</h1>
-			{apiArray.map((item, index) => (
-				<button
-					key={index}
-					onClick={() => setApi(item)}
-				>{`/api/n${item}`}</button>
-			))}
+			<button onClick={() => setEndpoint("mock")}>mock</button>
+			<button onClick={() => setEndpoint("mock/index")}>mock/index</button>
+			<button onClick={() => setEndpoint("mock/mock-inner")}>mock-inner</button>
 		</div>
 	);
 };
 
 export default Home;
-
-const apiArray = [
-	"001",
-	"002",
-	"003",
-	"004",
-	"005",
-	"006",
-	"007",
-	"008",
-	"009",
-	"010",
-	"011",
-	"012",
-	"013",
-	"014",
-	"015",
-	"016",
-	"017",
-	"018",
-	"019",
-	"020",
-	"021",
-	"022",
-	"023",
-	"024",
-	"025",
-	"026",
-	"027",
-	"028",
-	"029",
-	"030",
-	"031",
-	"032",
-	"033",
-	"034",
-	"035",
-	"036",
-	"037",
-	"038",
-	"039",
-	"040",
-	"041",
-	"042",
-	"043",
-	"044",
-	"045",
-	"046",
-	"047",
-	"048",
-	"049",
-	"050",
-	"051",
-	"052",
-	"053",
-	"054",
-	"055",
-	"056",
-	"057",
-	"058",
-	"059",
-	"060",
-	"061",
-	"062",
-	"063",
-	"064",
-	"065",
-	"066",
-	"067",
-	"068",
-	"069",
-	"070",
-	"071",
-	"072",
-	"073",
-	"074",
-	"075",
-	"076",
-	"077",
-	"078",
-	"079",
-	"080",
-	"081",
-	"082",
-	"083",
-	"084",
-	"085",
-	"086",
-	"087",
-	"088",
-	"089",
-	"090",
-	"091",
-	"092",
-	"093",
-	"094",
-	"095",
-	"096",
-	"097",
-	"098",
-	"099",
-	"100",
-	"101",
-	"102",
-	"103",
-	"104",
-	"105",
-	"106",
-	"107",
-	"108",
-	"109",
-	"110",
-	"111",
-	"112",
-	"113",
-	"114",
-	"115",
-	"116",
-	"117",
-	"118",
-	"119",
-	"120",
-	"121",
-	"122",
-	"123",
-	"124",
-	"125",
-	"126",
-	"127",
-	"128",
-	"129",
-	"130"
-];
