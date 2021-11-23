@@ -14,12 +14,40 @@ const Home: NextPage = () => {
 
 	return (
 		<div className={styles.container}>
-			<h1>
-				Response from {endpoint}: {endpointResponse}
-			</h1>
-			<button onClick={() => setEndpoint("mock")}>mock</button>
-			<button onClick={() => setEndpoint("mock/index")}>mock/index</button>
-			<button onClick={() => setEndpoint("mock/mock-inner")}>mock-inner</button>
+			<h3>Response from {endpoint}:</h3>
+			<h2>{endpointResponse}</h2>
+			<div style={{ display: "flex", flexDirection: "column" }}>
+				<button
+					style={{ margin: "5px", width: "260px", textAlign: "left" }}
+					onClick={() => setEndpoint("/")}
+				>
+					root /
+				</button>
+				<button
+					style={{ margin: "5px", width: "260px", textAlign: "left" }}
+					onClick={() => setEndpoint("mock1/")}
+				>
+					mock1/index
+				</button>
+				<button
+					style={{ margin: "5px", width: "260px", textAlign: "left" }}
+					onClick={() => setEndpoint("mock1/mock1-endpoint")}
+				>
+					mock1/mock1-endpoint
+				</button>
+				<button
+					style={{ margin: "5px", width: "260px", textAlign: "left" }}
+					onClick={() => setEndpoint("mock2/")}
+				>
+					mock2/index
+				</button>
+				<button
+					style={{ margin: "5px", width: "260px", textAlign: "left" }}
+					onClick={() => setEndpoint("mock2/mock2-endpoint")}
+				>
+					mock2/mock2-endpoint
+				</button>
+			</div>
 		</div>
 	);
 };
